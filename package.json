@@ -12,11 +12,14 @@
   "devDependencies": {
     "@cap-js/sqlite": "^1",
     "@sap/eslint-plugin-cds": "^3",
-    "eslint": "^9"
+    "eslint": "^9",
+    "cds-plugin-ui5": "^0.6.13"
   },
   "scripts": {
     "start": "cds-serve",
-    "compile-to-csn": "cds compile db/schema.cds -o db/schema.csn"
+    "compile-to-csn": "cds compile db/schema.cds -o db/schema.csn",
+    "watch-form-entry": "cds watch --open formentry/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-freestyle": "cds watch --open freestyle/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "cds": {
     "[development]": {
@@ -26,5 +29,12 @@
         }
       }
     }
-  }
+  },
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/form-entry",
+    "app/freestyle"
+  ]
 }

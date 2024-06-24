@@ -5,3 +5,5 @@ service TimesheetService {
   entity ActivityType   as projection on my.ActivityType;
   entity Location       as projection on my.Location;
 }
+
+annotate TimesheetService.TimesheetEntry with @odata.draft.enabled;
