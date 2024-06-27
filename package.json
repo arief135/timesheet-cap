@@ -16,10 +16,13 @@
     "cds-plugin-ui5": "^0.6.13"
   },
   "scripts": {
+    "dev": "cds-ts watch",
     "start": "cds-serve",
     "compile-to-csn": "cds compile db/schema.cds -o db/schema.csn",
     "watch-form-entry": "cds watch --open formentry/index.html?sap-ui-xx-viewCache=false --livereload false",
-    "watch-freestyle": "cds watch --open freestyle/index.html?sap-ui-xx-viewCache=false --livereload false"
+    "watch-freestyle": "cds watch --open freestyle/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-lrop": "cds watch --open lrop/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-flex": "cds watch --open flex/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "cds": {
     "[development]": {
@@ -35,6 +38,8 @@
   ],
   "sapux": [
     "app/form-entry",
-    "app/freestyle"
+    "app/freestyle",
+    "app/lrop",
+    "app/flex"
   ]
 }

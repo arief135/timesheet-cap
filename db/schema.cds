@@ -1,13 +1,18 @@
-using {managed} from '@sap/cds/common';
+using {
+  cuid,
+  managed,
+  sap.common.CodeList
+} from '@sap/cds/common';
 
 namespace metrasys.sap.timesheet;
 
-entity TimesheetEntry : managed {
-  key ID       : Integer;
-      atype    : Association to ActivityType;
-      detail   : String;
-      date     : Date;
-      location : Association to Location;
+entity TimesheetEntry : cuid, managed {
+  atype    : Association to ActivityType;
+  detail   : String;
+  date     : Date;
+  month    : Association to Month;
+  year     : Integer;
+  location : Association to Location;
 }
 
 entity ActivityType {
@@ -22,4 +27,8 @@ entity Location {
       name       : String(111);
       timesheets : Association to many TimesheetEntry
                      on timesheets.location = $self;
+}
+
+entity Month : CodeList {
+  key ID : Integer;
 }

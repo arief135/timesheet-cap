@@ -1,7 +1,7 @@
 {
   "_version": "1.59.0",
   "sap.app": {
-    "id": "freestyle",
+    "id": "flex",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -11,9 +11,9 @@
     "description": "{{appDescription}}",
     "resources": "resources.json",
     "sourceTemplate": {
-      "id": "@sap/generator-fiori:basic",
+      "id": "@sap/generator-fiori:fpm",
       "version": "1.13.6",
-      "toolsId": "573e0c08-54b5-4ad5-865d-692487fdc15a"
+      "toolsId": "5752a9ff-1409-4cf5-b815-fdd7edc7118c"
     },
     "dataSources": {
       "mainService": {
@@ -49,12 +49,8 @@
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
-        "sap.f": {},
-        "sap.suite.ui.generic.template": {},
-        "sap.ui.comp": {},
-        "sap.ui.generic.app": {},
-        "sap.ui.table": {},
-        "sap.ushell": {}
+        "sap.ushell": {},
+        "sap.fe.templates": {}
       }
     },
     "contentDensities": {
@@ -65,7 +61,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "freestyle.i18n.i18n"
+          "bundleName": "flex.i18n.i18n"
         }
       },
       "": {
@@ -76,49 +72,37 @@
           "autoExpandSelect": true,
           "earlyRequests": true
         }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
       }
     },
     "resources": {
-      "css": [
-        {
-          "uri": "css/style.css"
-        }
-      ]
+      "css": []
     },
     "routing": {
-      "config": {
-        "routerClass": "sap.m.routing.Router",
-        "viewType": "XML",
-        "async": true,
-        "viewPath": "freestyle.view",
-        "controlAggregation": "pages",
-        "controlId": "app",
-        "clearControlAggregation": false
-      },
+      "config": {},
       "routes": [
         {
-          "name": "RouteView1",
+          "name": "TimesheetEntryMain",
           "pattern": ":?query:",
-          "target": [
-            "MainView"
-          ]
+          "target": "TimesheetEntryMain"
         }
       ],
       "targets": {
-        "MainView": {
-          "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
-          "viewId": "Main",
-          "viewName": "Main"
+        "TimesheetEntryMain": {
+          "type": "Component",
+          "id": "TimesheetEntryMain",
+          "name": "sap.fe.core.fpm",
+          "options": {
+            "settings": {
+              "viewName": "flex.ext.main.Main",
+              "contextPath": "/TimesheetEntry"
+            }
+          }
         }
       }
-    },
-    "rootView": {
-      "viewName": "freestyle.view.App",
-      "type": "XML",
-      "async": true,
-      "id": "App"
     }
   }
 }
