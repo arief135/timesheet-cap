@@ -86,8 +86,8 @@
         <beginButton>
             <Button
                 id="_IDGenButton1"
-                text="Submit"
-                press="submitTimesheet"
+                text="Create"
+                press="createTimesheet"
             />
         </beginButton>
         <endButton>

@@ -29,6 +29,32 @@
       "requires": {
         "db": {
           "kind": "sqlite"
+        },
+        "auth": {
+          "kind": "mocked",
+          "users": {
+            "employee": {
+              "password": "1234",
+              "roles": [
+                "EMPLOYEE"
+              ],
+              "attr": {
+                "fullName": "Employee 1"
+              }
+            },
+            "administrator": {
+              "password": "1234",
+              "roles": [
+                "ADMINISTRATOR"
+              ]
+            },
+            "manager": {
+              "password": "1234",
+              "roles": [
+                "MANAGER"
+              ]
+            }
+          }
         }
       }
     }
